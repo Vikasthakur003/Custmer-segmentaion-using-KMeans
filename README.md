@@ -45,7 +45,6 @@ customer-segmentation/
 ├── README.md                  # Project documentation
 ```
 
----
 
 ##  Dataset Description
 
@@ -57,7 +56,6 @@ The dataset consists of the following features:
 | Annual_Income  | Income in thousands        |
 | Spending_Score | Customer spending behavior |
 
----
 
 ##  How the Project Works
 
@@ -108,9 +106,6 @@ Enter Spending Score: 70
 
 ```text
 Customer Segment: Premium Customer
-```
-
----
 
 ##  Visualization
 
@@ -121,8 +116,6 @@ The project generates a scatter plot showing:
 
 This helps visually understand how customers are grouped.
 
----
-
 ##  Machine Learning Concepts Used
 
 * Unsupervised Learning
@@ -131,8 +124,6 @@ This helps visually understand how customers are grouped.
 * Cluster Prediction
 * Data Visualization
 
----
-
 ##  Future Enhancements that i want to do 
 
 * Automatic K selection using **Elbow Method**
@@ -140,15 +131,12 @@ This helps visually understand how customers are grouped.
 * Streamlit web application
 * Real-world dataset integration
 
----
-
 ##  Myself...
 
 **Vikas Thakur**
 Aspiring Machine Learning Engineer
 
-📌 *This project is part of my hands-on learning journey in Machine Learning.*
+This project is part of my hands-on learning journey in Machine Learning.
 
----
 
-⭐ If you like this project, consider giving it a **star** on GitHub!
+
