@@ -1,0 +1,64 @@
+this code written by me but when i stuck to made this project.I took help from Chatgpt and understand algorithm logic then complete this project and after complete this project i feek that i am improving myself 
+this dataset take from the Chatgpt  
+
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import load_iris
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+data = {
+    "Age": [22, 25, 28, 35, 40, 45, 23, 26, 30, 38,
+            42, 48, 52, 55, 60, 62, 27, 33, 37, 41],
+    
+    "Annual_Income": [15, 18, 20, 30, 35, 40, 16, 19, 25, 32,
+                      38, 45, 50, 55, 60, 65, 22, 28, 34, 39],
+    
+    "Spending_Score": [80, 75, 78, 60, 55, 50, 82, 77, 65, 58,
+                       53, 48, 45, 40, 35, 30, 70, 62, 57, 52]
+}
+
+df = pd.DataFrame(data)
+print(df.head())
+
+#Scaled data 
+X = df[["Age","Annual_Income","Spending_Score"]]
+scaler= StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+#Grouping the data into clusters...
+kmeans = KMeans(n_clusters = 3,random_state = 42)
+df["Cluster"] = kmeans.fit_predict(X_scaled)
+
+print(df)
+#Taking input from the user....
+age = int(input("Enter Age :"))
+annual_income = int(input("Enter Annual Income : "))
+spending_score = int(input("Enter Spendinf Score :"))
+
+#Convert input data in a dataframe..
+user_input = pd.DataFrame([[age,annual_income,spending_score]],columns = ["Age","Annual_Income","Spending_Score"])
+
+user_input_scaled = scaler.transform(user_input)
+cluster = kmeans.predict(user_input_scaled)
+
+#Label mapping....
+cluster_labels = {
+    0: "Premium Customer",
+    1: "Low Priority Customer",
+    2: "Potential Customer"
+}
+
+#Customer behavior 0 for premium,1 for low and 2 for medium..
+print(f"custmer segmentation :{cluster_labels[cluster[0]]}")
+
+#Visualization for customer segmentation....
+plt.figure(figsize =(10,6))
+plt.scatter(df["Annual_Income"],df["Spending_Score"],c = df["Cluster"],cmap = "viridis")
+plt.xlabel("Annual_Income ")
+plt.ylabel("Spending_Score")
+plt.title("Customer Segmentation using K-Means")
+plt.grid(True)
+plt.show()
+
+
